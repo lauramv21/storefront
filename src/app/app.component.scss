@@ -1,0 +1,38 @@
+.price {
+  color: blue;
+}
+
+.image-zoom-container {
+  height: 440px;
+  width: 685px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1000;
+  .image-zoom:hover {
+    transform: scale(1.5);
+  }
+}
+
+//.LandingPage2Template {
+  //cx-page-slot.Section3 {
+  //  cx-product-carousel {
+  //    cx-carousel {-
+  //      .carousel-panel {
+  //        .slides {
+  //          .slide:not(:last-child) {
+  //            .item-active {
+  //              a {
+  //                cx-media {
+  //                  img:hover {
+  //                    transform: scale(1.5);
+  //                  }
+  //                }
+  //              }
+  //            }
+  //          }
+  //        }
+  //      }
+  //    }
+  //  }
+  //}
+//}

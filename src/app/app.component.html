@@ -1,20 +1,32 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<cx-storefront>
+</cx-storefront>
 
+
+<ng-template [cxOutletRef]="pdpOutlets.PRICE" let-product>
+  <div class="price">
+    Hello
+    {{product.product.price.formattedValue}}
+  </div>
+  <div class="image-zoom-container">
+    <img class="image-zoom" [src]="product.product.images.PRIMARY.product.url" >
+  </div>
+</ng-template>
+
+<ng-template cxOutletRef="Section1">
+  <cx-generic-link *ngIf="bannerCameraImage" [url]="cameraImageUrl">
+    <cx-media
+      alt="Save Big On Select SLR &amp; DSLR Cameras"
+      [container]="bannerCameraImage">
+    </cx-media>
+  </cx-generic-link>
+  <cx-generic-link *ngIf="bannerAccesoriesImage" [url]="accesoriesUrl">
+    <cx-media
+      alt="Save Big on Select Camera Accessories & Supplies"
+      [container]="bannerAccesoriesImage">
+    </cx-media>
+  </cx-generic-link>
+</ng-template>
+
+<!--"https://hybris-rnd.test4echo.app/medias/Elec-480x320-HomeSpeed-EN-01-480W.jpg?context=bWFzdGVyfGltYWdlc3wzMzkzMnxpbWFnZS9qcGVnfGltYWdlcy9oYzQvaGNkLzg3OTY5NTM0NzcxNTAuanBnfGM1ZWU4NjE4OTEzYmViZTE5YjJiOWRmMWQ1ZWI2ZWI5ZWVjOGQyMGRjMTVmNjIzZDg1MTIzYTU5MjY3YmQ3YzU 576w, https://hybris-rnd.test4echo.app/medias/Elec-770x350-HomeSpeed-EN-01-770W.jpg?context=bWFzdGVyfGltYWdlc3w1MzAzOHxpbWFnZS9qcGVnfGltYWdlcy9oMmEvaGI2Lzg3OTY5NTM1NDI2ODYuanBnfDZjN2JlNDU0OTZkZWQ4ZWI5OTk3YTkxOGIzMGUxNWRhZjE0NDhjZGIxMmQ4N2UwMjZhMjk0ZGFkYmY5YmNiOWI 768w, https://hybris-rnd.test4echo.app/medias/Elec-960x330-HomeSpeed-EN-01-960W.jpg?context=bWFzdGVyfGltYWdlc3w1MzE2M3xpbWFnZS9qcGVnfGltYWdlcy9oNzIvaDI0Lzg3OTY5NTM2NzM3NTguanBnfDE5Njk1MGQxMjA2OWUwZDMzNzdiMTMzYjk3NGY4N2Y0N2Y0MTg3N2RkZjY2Yzk4ZDY2NThmZTQxMmMwZTllYjk 992w, https://hybris-rnd.test4echo.app/medias/Elec-1400x440-HomeSpeed-EN-01-1400W.jpg?context=bWFzdGVyfGltYWdlc3w4MTk4OHxpbWFnZS9qcGVnfGltYWdlcy9oZDcvaDFhLzg3OTY5NTMyODA1NDIuanBnfGUzYTc5NGE5MjMxZDI3OTAzNjFkYzFmNTA1N2YyNWJiMGEwNjY4ZWY1ODE1YzdjYzdiYzQ3MmQ2YmVjYTI4M2Y 1200w"-->
+
+<!--srcset="https://hybris-rnd.test4echo.app/medias/Elec-480x118-HomeDiscount-EN-01-480W.jpg?context=bWFzdGVyfGltYWdlc3wxMDcxNXxpbWFnZS9qcGVnfGltYWdlcy9oYzkvaGZmLzg3OTY5NTM0MTE2MTQuanBnfGU4NTYwODZiMTE5MTM3OGNlNjJhMmRlNGNiNTE2MWMxYTk1Y2UwZjVhZjQwNTBkOTgxOTdlNWRlNzgwZTMwMTY 576w, https://hybris-rnd.test4echo.app/medias/Elec-770x80-HomeDiscount-EN-01-770W.jpg?context=bWFzdGVyfGltYWdlc3w5NTAwfGltYWdlL2pwZWd8aW1hZ2VzL2g0OS9oNGQvODc5Njk1MzYwODIyMi5qcGd8MzNmMGY5Y2VkZTY1ODE2NzQwMWI1MjIwNTZmYWMwMTE1YTE0ZGE3NzRmNmFiZjNhYTVlMmIwZWJlMDhkNjAyMw 768w, https://hybris-rnd.test4echo.app/medias/Elec-960x80-HomeDiscount-EN-01-960W.jpg?context=bWFzdGVyfGltYWdlc3wxMDQ2NnxpbWFnZS9qcGVnfGltYWdlcy9oM2QvaDAzLzg3OTY5NTM3MzkyOTQuanBnfDc2Y2I2MzEwYWQ0MjNkZmVmOTJlMDY2ZDZlZmUxZTQwYmQ4MDk5MzM0NjU0MzdlMzUxMjJmZDU4MWU5ZTg0Yjg 992w, https://hybris-rnd.test4echo.app/medias/Elec-1400x80-HomeDiscount-EN-01-1400W.jpg?context=bWFzdGVyfGltYWdlc3wxMTE0MnxpbWFnZS9qcGVnfGltYWdlcy9oYmQvaDM5Lzg3OTY5NTMzNDYwNzguanBnfDlhMzY5MmFlYjkwYjg2OWQ1ZTZhNzg3YzZmMjNhZWJiNzNlZmRkZDQ1NTYyOTMxYjE4MmUyNDc2YzhlZmM4NzQ 1200w"-->

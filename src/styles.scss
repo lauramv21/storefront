@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@spartacus/styles/index";
+
+
+//Zoom images in the main page, that are contained inside a carousel
+.LandingPage2Template {
+  cx-carousel {
+    img:hover {
+      transform: scale(1.1);
+    }
+  }
+}
