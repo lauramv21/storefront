@@ -1,14 +1,41 @@
 <cx-storefront>
 </cx-storefront>
 
-
-<ng-template [cxOutletRef]="pdpOutlets.PRICE" let-product>
-  <div class="price">
-    Hello
-    {{product.product.price.formattedValue}}
+<ng-template cxOutletRef="Summary" class="product-summary">
+  <div *ngIf="productDetails"
+       class="product-images">
+    <ngx-image-zoom
+      [thumbImage]="productDetails.images.PRIMARY.product.url"
+      zoomMode="hover"
+      enableLens="true"
+      lensHeight="1000"
+      lensWidth="1000"
+      magnification="2"
+      enableScrollZoom="true">
+    </ngx-image-zoom>
   </div>
-  <div class="image-zoom-container">
-    <img class="image-zoom" [src]="product.product.images.PRIMARY.product.url" >
+  <div class="product-information"
+       *ngIf="productDetails">
+    <div class="product-rating">
+      <cx-star-rating [rating]="productDetails.averageRating">
+      </cx-star-rating>
+      <div>
+        ({{productDetails.numberOfReviews}})
+      </div>
+      <!-- link missing to open the reviews page -->
+      <a href="">Show Reviews</a>
+    </div>
+    <div>
+      ID {{productDetails.code}}
+    </div>
+    <cx-product-summary>
+      {{productDetails.price.formattedValue}}
+    </cx-product-summary>
+    <div class="stock" *ngIf="productDetails.stock.stockLevel > 0">
+      <label>Qty</label>
+      <!--    <cx-item-counter value="0" step="1" min="0" [max]="productDetails.stock.stockLevel">-->
+      <!--    </cx-item-counter>-->
+    </div>
   </div>
 </ng-template>
 
@@ -26,7 +53,3 @@
     </cx-media>
   </cx-generic-link>
 </ng-template>
-
-<!--"https://hybris-rnd.test4echo.app/medias/Elec-480x320-HomeSpeed-EN-01-480W.jpg?context=bWFzdGVyfGltYWdlc3wzMzkzMnxpbWFnZS9qcGVnfGltYWdlcy9oYzQvaGNkLzg3OTY5NTM0NzcxNTAuanBnfGM1ZWU4NjE4OTEzYmViZTE5YjJiOWRmMWQ1ZWI2ZWI5ZWVjOGQyMGRjMTVmNjIzZDg1MTIzYTU5MjY3YmQ3YzU 576w, https://hybris-rnd.test4echo.app/medias/Elec-770x350-HomeSpeed-EN-01-770W.jpg?context=bWFzdGVyfGltYWdlc3w1MzAzOHxpbWFnZS9qcGVnfGltYWdlcy9oMmEvaGI2Lzg3OTY5NTM1NDI2ODYuanBnfDZjN2JlNDU0OTZkZWQ4ZWI5OTk3YTkxOGIzMGUxNWRhZjE0NDhjZGIxMmQ4N2UwMjZhMjk0ZGFkYmY5YmNiOWI 768w, https://hybris-rnd.test4echo.app/medias/Elec-960x330-HomeSpeed-EN-01-960W.jpg?context=bWFzdGVyfGltYWdlc3w1MzE2M3xpbWFnZS9qcGVnfGltYWdlcy9oNzIvaDI0Lzg3OTY5NTM2NzM3NTguanBnfDE5Njk1MGQxMjA2OWUwZDMzNzdiMTMzYjk3NGY4N2Y0N2Y0MTg3N2RkZjY2Yzk4ZDY2NThmZTQxMmMwZTllYjk 992w, https://hybris-rnd.test4echo.app/medias/Elec-1400x440-HomeSpeed-EN-01-1400W.jpg?context=bWFzdGVyfGltYWdlc3w4MTk4OHxpbWFnZS9qcGVnfGltYWdlcy9oZDcvaDFhLzg3OTY5NTMyODA1NDIuanBnfGUzYTc5NGE5MjMxZDI3OTAzNjFkYzFmNTA1N2YyNWJiMGEwNjY4ZWY1ODE1YzdjYzdiYzQ3MmQ2YmVjYTI4M2Y 1200w"-->
-
-<!--srcset="https://hybris-rnd.test4echo.app/medias/Elec-480x118-HomeDiscount-EN-01-480W.jpg?context=bWFzdGVyfGltYWdlc3wxMDcxNXxpbWFnZS9qcGVnfGltYWdlcy9oYzkvaGZmLzg3OTY5NTM0MTE2MTQuanBnfGU4NTYwODZiMTE5MTM3OGNlNjJhMmRlNGNiNTE2MWMxYTk1Y2UwZjVhZjQwNTBkOTgxOTdlNWRlNzgwZTMwMTY 576w, https://hybris-rnd.test4echo.app/medias/Elec-770x80-HomeDiscount-EN-01-770W.jpg?context=bWFzdGVyfGltYWdlc3w5NTAwfGltYWdlL2pwZWd8aW1hZ2VzL2g0OS9oNGQvODc5Njk1MzYwODIyMi5qcGd8MzNmMGY5Y2VkZTY1ODE2NzQwMWI1MjIwNTZmYWMwMTE1YTE0ZGE3NzRmNmFiZjNhYTVlMmIwZWJlMDhkNjAyMw 768w, https://hybris-rnd.test4echo.app/medias/Elec-960x80-HomeDiscount-EN-01-960W.jpg?context=bWFzdGVyfGltYWdlc3wxMDQ2NnxpbWFnZS9qcGVnfGltYWdlcy9oM2QvaDAzLzg3OTY5NTM3MzkyOTQuanBnfDc2Y2I2MzEwYWQ0MjNkZmVmOTJlMDY2ZDZlZmUxZTQwYmQ4MDk5MzM0NjU0MzdlMzUxMjJmZDU4MWU5ZTg0Yjg 992w, https://hybris-rnd.test4echo.app/medias/Elec-1400x80-HomeDiscount-EN-01-1400W.jpg?context=bWFzdGVyfGltYWdlc3wxMTE0MnxpbWFnZS9qcGVnfGltYWdlcy9oYmQvaDM5Lzg3OTY5NTMzNDYwNzguanBnfDlhMzY5MmFlYjkwYjg2OWQ1ZTZhNzg3YzZmMjNhZWJiNzNlZmRkZDQ1NTYyOTMxYjE4MmUyNDc2YzhlZmM4NzQ 1200w"-->

@@ -6,11 +6,12 @@ import {translations, translationChunksConfig} from '@spartacus/assets';
 import {
   B2cStorefrontModule,
   CarouselModule,
-  defaultCmsContentConfig, GenericLinkModule, IconComponent,
+  defaultCmsContentConfig, GenericLinkModule, IconComponent, ItemCounterModule,
   MediaModule,
   OutletModule,
-  ProductCarouselModule
+  ProductCarouselModule, ProductSummaryModule, StarRatingModule
 } from '@spartacus/storefront';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 import {AppComponent} from './app.component';
 import {CustomBannerComponent} from './components/custom-banner/custom-banner.component';
@@ -137,7 +138,11 @@ import {CustomBannerComponent} from './components/custom-banner/custom-banner.co
     CarouselModule,
     ProductCarouselModule,
     OutletModule,
-    GenericLinkModule
+    GenericLinkModule,
+    NgxImageZoomModule.forRoot(),
+    ProductSummaryModule,
+    StarRatingModule,
+    ItemCounterModule
   ],
   providers: [],
   bootstrap: [AppComponent],

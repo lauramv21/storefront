@@ -1,23 +1,30 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
-import {ProductDetailOutlets} from '@spartacus/storefront';
+import {ProductDetailOutlets, CurrentProductService, OutletService} from '@spartacus/storefront';
+import {Product} from '@spartacus/core/src/model/product.model';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'mystore';
   waa = 'SimpleResponsiveBannerComponen';
   bannerCameraImage: any;
   cameraImageUrl: string;
   accesoriesUrl: string;
   bannerAccesoriesImage: any;
-
+  productDetails: any;
   pdpOutlets = ProductDetailOutlets;
+  productSummary: Observable<Product> ;
 
-  constructor() {
+  constructor(productService: CurrentProductService) {
+    this.productSummary = productService.getProduct();
+  }
+
+  ngOnInit(): void {
     this.bannerCameraImage = {
       mobile: {
         url: '/medias/Elec-480x320-HomeSpeed-EN-01-480W.jpg?context=bWFzdGVyfGltYWdlc3wzMzkzMnxpbWFnZS9qcGVnfGltYWdlcy9oYzQvaGNkLzg3OTY5NTM0NzcxNTAuanBnfGM1ZWU4NjE4OTEzYmViZTE5YjJiOWRmMWQ1ZWI2ZWI5ZWVjOGQyMGRjMTVmNjIzZDg1MTIzYTU5MjY3YmQ3YzU'
@@ -48,5 +55,9 @@ export class AppComponent {
     };
     this.cameraImageUrl = '/OpenCatalogue/Cameras/Digital';
     this.accesoriesUrl = '/Open-Catalogue/Cameras/Camera';
+    this.productSummary.subscribe((value) => {
+      this.productDetails = value;
+      console.log(this.productDetails);
+    });
   }
 }
