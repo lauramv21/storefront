@@ -1,0 +1,14 @@
+<ng-template cxOutletRef="Section1">
+  <cx-generic-link *ngIf="bannerCameraImage" [url]="cameraImageUrl">
+    <cx-media
+      alt="Save Big On Select SLR &amp; DSLR Cameras"
+      [container]="bannerCameraImage">
+    </cx-media>
+  </cx-generic-link>
+  <cx-generic-link *ngIf="bannerAccesoriesImage" [url]="accesoriesUrl">
+    <cx-media
+      alt="Save Big on Select Camera Accessories & Supplies"
+      [container]="bannerAccesoriesImage">
+    </cx-media>
+  </cx-generic-link>
+</ng-template>

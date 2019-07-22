@@ -1,55 +1,8 @@
 <cx-storefront>
 </cx-storefront>
 
-<ng-template cxOutletRef="Summary" class="product-summary">
-  <div *ngIf="productDetails"
-       class="product-images">
-    <ngx-image-zoom
-      [thumbImage]="productDetails.images.PRIMARY.product.url"
-      zoomMode="hover"
-      enableLens="true"
-      lensHeight="1000"
-      lensWidth="1000"
-      magnification="2"
-      enableScrollZoom="true">
-    </ngx-image-zoom>
-  </div>
-  <div class="product-information"
-       *ngIf="productDetails">
-    <div class="product-rating">
-      <cx-star-rating [rating]="productDetails.averageRating">
-      </cx-star-rating>
-      <div>
-        ({{productDetails.numberOfReviews}})
-      </div>
-      <!-- link missing to open the reviews page -->
-      <a href="">Show Reviews</a>
-    </div>
-    <div>
-      ID {{productDetails.code}}
-    </div>
-    <cx-product-summary>
-      {{productDetails.price.formattedValue}}
-    </cx-product-summary>
-    <div class="stock" *ngIf="productDetails.stock.stockLevel > 0">
-      <label>Qty</label>
-      <!--    <cx-item-counter value="0" step="1" min="0" [max]="productDetails.stock.stockLevel">-->
-      <!--    </cx-item-counter>-->
-    </div>
-  </div>
-</ng-template>
+<app-advertisement-banner>
+</app-advertisement-banner>
 
-<ng-template cxOutletRef="Section1">
-  <cx-generic-link *ngIf="bannerCameraImage" [url]="cameraImageUrl">
-    <cx-media
-      alt="Save Big On Select SLR &amp; DSLR Cameras"
-      [container]="bannerCameraImage">
-    </cx-media>
-  </cx-generic-link>
-  <cx-generic-link *ngIf="bannerAccesoriesImage" [url]="accesoriesUrl">
-    <cx-media
-      alt="Save Big on Select Camera Accessories & Supplies"
-      [container]="bannerAccesoriesImage">
-    </cx-media>
-  </cx-generic-link>
-</ng-template>
+<app-product-summary>
+</app-product-summary>

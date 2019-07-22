@@ -6,20 +6,28 @@ import {translations, translationChunksConfig} from '@spartacus/assets';
 import {
   B2cStorefrontModule,
   CarouselModule,
-  defaultCmsContentConfig, GenericLinkModule, IconComponent, ItemCounterModule,
+  defaultCmsContentConfig,
+  GenericLinkModule,
+  ItemCounterModule,
   MediaModule,
   OutletModule,
-  ProductCarouselModule, ProductSummaryModule, StarRatingModule
+  ProductCarouselModule,
+  ProductSummaryModule,
+  StarRatingModule
 } from '@spartacus/storefront';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 import {AppComponent} from './app.component';
 import {CustomBannerComponent} from './components/custom-banner/custom-banner.component';
+import { ProductSummaryComponent } from './components/product-summary/product-summary.component';
+import { AdvertisementBannerComponent } from './components/advertisement-banner/advertisement-banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomBannerComponent
+    CustomBannerComponent,
+    ProductSummaryComponent,
+    AdvertisementBannerComponent
   ],
   imports: [
     BrowserModule,
