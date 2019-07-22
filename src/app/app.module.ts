@@ -15,12 +15,12 @@ import {
   ProductSummaryModule,
   StarRatingModule
 } from '@spartacus/storefront';
-import { NgxImageZoomModule } from 'ngx-image-zoom';
+import {NgxImageZoomModule} from 'ngx-image-zoom';
 
 import {AppComponent} from './app.component';
 import {CustomBannerComponent} from './components/custom-banner/custom-banner.component';
-import { ProductSummaryComponent } from './components/product-summary/product-summary.component';
-import { AdvertisementBannerComponent } from './components/advertisement-banner/advertisement-banner.component';
+import {ProductSummaryComponent} from './components/product-summary/product-summary.component';
+import {AdvertisementBannerComponent} from './components/advertisement-banner/advertisement-banner.component';
 
 @NgModule({
   declarations: [

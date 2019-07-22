@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Product} from '@spartacus/core';
 import {CurrentProductService} from '@spartacus/storefront';
@@ -11,7 +11,6 @@ import {CurrentProductService} from '@spartacus/storefront';
 export class ProductSummaryComponent implements OnInit {
   productSummary: Observable<Product>;
   productInformation: any;
-
   hasImagesCarousel: boolean;
 
   constructor(productService: CurrentProductService) {
@@ -25,5 +24,4 @@ export class ProductSummaryComponent implements OnInit {
       console.log(this.productInformation);
     });
   }
-
 }

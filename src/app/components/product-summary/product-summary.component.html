@@ -30,13 +30,13 @@
     <cx-product-summary class="product-specifics">
       {{productInformation.price.formattedValue}}
     </cx-product-summary>
-    <!--    <div class="stock" *ngIf="productInformation.stock.stockLevel > 0">-->
-    <!--      <label>Qty</label>-->
-    <!--          <cx-item-counter value="0"-->
-    <!--                           step="1"-->
-    <!--                           min="0"-->
-    <!--                           [max]="productInformation.stock.stockLevel">-->
-    <!--          </cx-item-counter>-->
-    <!--    </div>-->
+    <div class="stock" *ngIf="productInformation.stock.stockLevel > 0">
+      <label>Qty</label>
+      <cx-item-counter [step]="1"
+                       [min]="1"
+                       [max]="productInformation.stock.stockLevel"
+                       isValueChangeable="true">
+      </cx-item-counter>
+    </div>
   </div>
 </ng-template>
