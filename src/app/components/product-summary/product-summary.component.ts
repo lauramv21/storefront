@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {Product} from '@spartacus/core';
 import {CurrentProductService} from '@spartacus/storefront';
 
@@ -31,11 +31,12 @@ export class ProductSummaryComponent implements OnInit {
   private setImages() {
     this.imagesGallery = [];
     if (this.productInformation) {
-      this.productInformation.images.GALLERY.forEach((image) => {
-        this.imagesGallery.push({thumbnail: image.thumbnail.url, zoom: image.zoom.url});
-        this.imagesGallery.push({thumbnail: image.thumbnail.url, zoom: image.zoom.url});
+      this.productInformation.images.GALLERY.forEach((image, index) => {
+        if (index === 0) {
+          this.activeImage = image.zoom.url;
+        }
+        this.imagesGallery.push(of({thumbnail: image.thumbnail.url, zoom: image.zoom.url}));
       });
-      this.activeImage = this.imagesGallery[0].zoom;
     }
   }
 

@@ -4,9 +4,9 @@
 }
 
 .product-rating {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
 
   .reviews-count {
     margin: 0 1rem;
@@ -15,14 +15,4 @@
 
 .product-specifics {
   padding-left: 0;
-}
-
-.images-carousel {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  .image {
-    width: 100px;
-    height: 100px;
-  }
 }

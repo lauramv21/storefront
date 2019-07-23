@@ -8,19 +8,19 @@
                       isInsideStaticContainer="true"
                       zoomMode="hover"
                       enableLens="true"
-                      lensHeight="300"
-                      lensWidth="300"
+                      lensHeight="200"
+                      lensWidth="200"
                       magnification="2"
                       enableScrollZoom="true">
       </ngx-image-zoom>
-      <ul class="images-carousel"
-          *ngIf="hasImagesCarousel">
-        <li *ngFor="let image of imagesGallery"
-            class="image"
-            (click)="changeImageToDisplay(image.zoom)">
-          <img [src]="image.thumbnail">
-        </li>
-      </ul>
+      <cx-carousel itemWidth="25%" [items]="imagesGallery"
+                   [template]="ImageToShow">
+      </cx-carousel>
+      <ng-template #ImageToShow let-item="item">
+        <div (click)="changeImageToDisplay(item.zoom)">
+          <img [src]="item.thumbnail">
+        </div>
+      </ng-template>
     </div>
   </div>
   <div class="product-information"
