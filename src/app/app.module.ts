@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 import {ConfigModule} from '@spartacus/core';
 import {translations, translationChunksConfig} from '@spartacus/assets';
 import {
+  AddToCartModule,
   B2cStorefrontModule,
   CarouselModule,
   defaultCmsContentConfig,
@@ -150,7 +151,8 @@ import {AdvertisementBannerComponent} from './components/advertisement-banner/ad
     NgxImageZoomModule.forRoot(),
     ProductSummaryModule,
     StarRatingModule,
-    ItemCounterModule
+    ItemCounterModule,
+    AddToCartModule
   ],
   providers: [],
   bootstrap: [AppComponent],
