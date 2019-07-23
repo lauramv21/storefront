@@ -16,3 +16,13 @@
 .product-specifics {
   padding-left: 0;
 }
+
+.images-carousel {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  .image {
+    width: 100px;
+    height: 100px;
+  }
+}

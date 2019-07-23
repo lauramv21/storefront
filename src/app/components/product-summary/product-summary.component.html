@@ -2,16 +2,26 @@
              class="product-summary">
   <div *ngIf="productInformation"
        class="product-images">
-    <ngx-image-zoom class="image"
-                    [thumbImage]="productInformation.images.PRIMARY.product.url"
-                    isInsideStaticContainer="true"
-                    zoomMode="hover"
-                    enableLens="true"
-                    lensHeight="1000"
-                    lensWidth="1000"
-                    magnification="3"
-                    enableScrollZoom="true">
-    </ngx-image-zoom>
+    <div>
+      <ngx-image-zoom class="image"
+                      [thumbImage]="activeImage"
+                      isInsideStaticContainer="true"
+                      zoomMode="hover"
+                      enableLens="true"
+                      lensHeight="300"
+                      lensWidth="300"
+                      magnification="2"
+                      enableScrollZoom="true">
+      </ngx-image-zoom>
+      <ul class="images-carousel"
+          *ngIf="hasImagesCarousel">
+        <li *ngFor="let image of imagesGallery"
+            class="image"
+            (click)="changeImageToDisplay(image.zoom)">
+          <img [src]="image.thumbnail">
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="product-information"
        *ngIf="productInformation">
