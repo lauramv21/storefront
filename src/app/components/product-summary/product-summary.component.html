@@ -4,21 +4,23 @@
        class="product-images">
     <div>
       <ngx-image-zoom class="image"
-                      [thumbImage]="activeImage"
+                      [thumbImage]="activeImage.product"
+                      [fullImage]="activeImage.zoom"
                       isInsideStaticContainer="true"
                       zoomMode="hover"
                       enableLens="true"
                       lensHeight="200"
                       lensWidth="200"
                       magnification="2"
-                      enableScrollZoom="true">
+                      enableScrollZoom="true"
+                      circularLens="true">
       </ngx-image-zoom>
       <cx-carousel itemWidth="25%" [items]="imagesGallery"
                    [template]="ImageToShow">
       </cx-carousel>
-      <ng-template #ImageToShow let-item="item">
-        <div (click)="changeImageToDisplay(item.zoom)">
-          <img [src]="item.thumbnail">
+      <ng-template #ImageToShow let-image="item">
+        <div (click)="changeImageToDisplay(image)">
+          <img [src]="image.thumbnail">
         </div>
       </ng-template>
     </div>

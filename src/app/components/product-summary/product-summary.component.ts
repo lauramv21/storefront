@@ -13,7 +13,7 @@ export class ProductSummaryComponent implements OnInit {
   productInformation: any;
   hasImagesCarousel: boolean;
   imagesGallery: any;
-  activeImage: string;
+  activeImage: any;
 
   constructor(productService: CurrentProductService) {
     this.productSummary = productService.getProduct();
@@ -32,10 +32,11 @@ export class ProductSummaryComponent implements OnInit {
     this.imagesGallery = [];
     if (this.productInformation) {
       this.productInformation.images.GALLERY.forEach((image, index) => {
+        const imageObj = {product: image.product.url, thumbnail: image.thumbnail.url, zoom: image.zoom.url};
         if (index === 0) {
-          this.activeImage = image.zoom.url;
+          this.activeImage = imageObj;
         }
-        this.imagesGallery.push(of({thumbnail: image.thumbnail.url, zoom: image.zoom.url}));
+        this.imagesGallery.push(of(imageObj));
       });
     }
   }
