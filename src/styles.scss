@@ -14,3 +14,20 @@
 .ngxImageZoomThumbnail {
   height: 500px;
 }
+
+.cx-product-search-list {
+  .cx-product-name {
+    color: red;
+  }
+}
+
+cx-navigation-ui.flyout > nav > h5 {
+  display: block;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+cx-navigation-ui > nav:nth-child(5) > cx-generic-link > a {
+  display: none;
+}

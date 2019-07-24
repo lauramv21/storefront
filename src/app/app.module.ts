@@ -136,11 +136,11 @@ import {AdvertisementBannerComponent} from './components/advertisement-banner/ad
           slots: ['TopContent', 'BodyContent', 'SideContent', 'BottomContent'],
         },
       },
-      cmsComponents: {
-        SimpleResponsiveBannerComponent: {
-          component: CustomBannerComponent
-        }
-      }
+      // cmsComponents: {
+      //   SimpleResponsiveBannerComponent: {
+      //     component: CustomBannerComponent
+      //   }
+      // }
     }),
     ConfigModule.withConfigFactory(defaultCmsContentConfig),
     MediaModule,

@@ -16,7 +16,8 @@
                       circularLens="true">
       </ngx-image-zoom>
       <cx-carousel itemWidth="25%" [items]="imagesGallery"
-                   [template]="ImageToShow">
+                   [template]="ImageToShow"
+      *ngIf="imagesGallery.length > 1">
       </cx-carousel>
       <ng-template #ImageToShow let-image="item">
         <div (click)="changeImageToDisplay(image)">
